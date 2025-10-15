@@ -1,16 +1,21 @@
-function Player(x,y,w,h,col,img){
+function Player(x,y,w,h,col,img,l,r,u,d,speed){
   this.x = x;
   this.y = y;
   this.w = w;
   this.h = h;
   this.col = col;
   this.img = loadImage(img);
+  this.l = l;
+  this.r = r;
+  this.u = u;
+  this.d = d;
+  this.speed = speed
   
   //this function will move the player
   this.update = function(){
-    if(keyIsDown(37)){
+    if(keyIsDown(this.l)){
       //this is the left arrow
-      this.x -= 5;
+      this.x -= this.speed;
     }
   }//end update
   
