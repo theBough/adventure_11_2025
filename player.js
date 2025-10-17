@@ -31,7 +31,12 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     if (keyIsDown(this.l)) {
       //this is the left arrow
       this.x -= this.speed;
-      
+      if(!stop){
+        stop = setInterval(() => this.animateLeft(), 100)
+      }
+    }else{
+      clearInterval(stop);
+      stop = null
     }
   }; //end update
 
