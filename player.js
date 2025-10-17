@@ -11,9 +11,9 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
   this.d = d;
   this.speed = speed;
   this.walkLeft = [
-    loadImage("ltOne.png"),
-    loadImage("ltTwo.png"),
-    loadImage("ltThree.png")    
+    loadImage("images/playerOne/ltOne.png"),
+    loadImage("images/playerOne/ltTwo.png"),
+    loadImage("images/playerOne/ltThree.png")    
   ]
   this.walkCycle = 0;
   let stop;
