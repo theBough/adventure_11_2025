@@ -16,14 +16,13 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     loadImage("images/playerOne/ltThree.png")    
   ]
   this.walkCycle = 0;
-  let stop;
+  
   
   this.animateLeft = function(){
-    this.img = this.walkLeft[this.walkCycle];
-    this.walkCycle += 1;
-    //the number 2 is because I have a 3 picture walk cycle
-    if(this.walkCycle>2){
-      this.walkCycle = 0;
+   
+    if(frameCount % 10 == 0){
+       this.img = this.walkLeft[this.walkCycle];
+        this.walkCycle = (this.walkCycle+1) % 3;
     }
   } 
   //this function will move the player
@@ -31,14 +30,9 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     if (keyIsDown(this.l)) {
       //this is the left arrow
       this.x -= this.speed;
-      if(!stop){
-        stop = setInterval(() => this.animateLeft(), 100)
-      }
-    }else{
-      clearInterval(stop);
-      stop = null
-    }
-  }; //end update
+      this.animateLeft();
+    } //end update
+  }
 
   //this function displays the image onto the canvas
   this.display = function () {
