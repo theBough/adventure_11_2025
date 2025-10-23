@@ -21,6 +21,17 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     loadImage("images/playerOne/rtThree_.png")    
   ]
   this.walkCycle = 0;
+  this.standLeft = loadImage("images/playerOne/standLeft.png")
+  this.standRight = loadImage("images/playerOne/standRight.png")
+  this.direction = "right"
+  //**********************************************************************
+  this.rest = function(){
+    if(this.direction == "left"){
+      this.img = this.standLeft;
+    }else{
+      this.img = this.standRight;
+    }
+  }  
   this.animateRight = function(){
     if(frameCount % 10 == 0){
        this.img = this.walkRight[this.walkCycle];
@@ -39,13 +50,16 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     if (keyIsDown(this.l)) {
       //this is the left arrow
       this.x -= this.speed;
+      this.direction = "left"
       this.animateLeft();
-    } //end update
-    if (keyIsDown(this.r)) {
+    }else if (keyIsDown(this.r)) {
       //this is the left arrow
       this.x += this.speed;
+      this.direction = "right"
       this.animateRight();
-    } //end update
+    } else{
+      this.rest();
+    }
   }
 
   //this function displays the image onto the canvas
