@@ -10,3 +10,9 @@ function Wall(x,y,w,h,col){
     rect(this.x, this.y, this.w, this.h);
   }
 }//end wall
+
+function roomOne(){
+  w=[];
+  w.push(new Wall(0,225,400,20,"#4CAF50"))
+  
+}
