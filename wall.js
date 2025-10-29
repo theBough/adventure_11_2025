@@ -11,3 +11,12 @@ function Wall(x,y,w,h,col){
   }
 }//end wall
 
+function roomChange(){
+  if(p.x + p.w < 0 ){
+    //the player has gone past the left edge of the canvas
+    //put the player on the right side
+    p.x= width;
+  }
+}//end roomChange
+
+
