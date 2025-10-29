@@ -76,7 +76,8 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     }else{
       this.rest();
     }
-  }
+    roomChange()
+  }//end update
 
   //this function displays the image onto the canvas
   this.display = function () {
