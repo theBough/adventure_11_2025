@@ -20,6 +20,10 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
     loadImage("images/playerOne/rtTwo_.png"),
     loadImage("images/playerOne/rtThree_.png")    
   ]
+  this.walkUp = [
+    loadImage("images/playerOne/climbOne.png"),
+    loadImage("images/playerOne/climbTwo.png")    
+  ]
   this.walkCycle = 0;
   this.standLeft = loadImage("images/playerOne/standLeft.png")
   this.standRight = loadImage("images/playerOne/standRight.png")
@@ -35,14 +39,21 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
   this.animateRight = function(){
     if(frameCount % 10 == 0){
        this.img = this.walkRight[this.walkCycle];
-        this.walkCycle = (this.walkCycle+1) % 3;
+        this.walkCycle = (this.walkCycle+1) % this.walkRight.length;
     }
   } 
   this.animateLeft = function(){
    
     if(frameCount % 10 == 0){
        this.img = this.walkLeft[this.walkCycle];
-        this.walkCycle = (this.walkCycle+1) % 3;
+        this.walkCycle = (this.walkCycle+1) % this.walkLeft.length;
+    }
+  } 
+  this.animateUp = function(){
+   
+    if(frameCount % 10 == 0){
+       this.img = this.walkUp[this.walkCycle];
+        this.walkCycle = (this.walkCycle+1) % this.walkUp.length;
     }
   } 
   //this function will move the player
@@ -57,7 +68,12 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
       this.x += this.speed;
       this.direction = "right"
       this.animateRight();
-    } else{
+    } else if (keyIsDown(this.u)) {
+      //this is the left arrow
+      this.y -= this.speed;
+      this.direction = "left"
+      this.animateUp();
+    }else{
       this.rest();
     }
   }
