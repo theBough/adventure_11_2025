@@ -16,11 +16,13 @@ function roomChange(){
     //the player has gone past the left edge of the canvas
     //put the player on the right side
     p.x= width;
+     activeColumn -=1;
   }
   if(p.x > width ){
-    //the player has gone past the left edge of the canvas
+    //the player has gone past the right edge of the canvas
     //put the player on the right side
     p.x= 0;
+    activeColumn +=1;
   }
 }//end roomChange
 
