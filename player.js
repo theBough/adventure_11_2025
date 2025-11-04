@@ -38,22 +38,25 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
   }  
   this.animateRight = function(){
     if(frameCount % 10 == 0){
-       this.img = this.walkRight[this.walkCycle];
         this.walkCycle = (this.walkCycle+1) % this.walkRight.length;
+       this.img = this.walkRight[this.walkCycle];
+      
     }
   } 
   this.animateLeft = function(){
    
     if(frameCount % 10 == 0){
-       this.img = this.walkLeft[this.walkCycle];
         this.walkCycle = (this.walkCycle+1) % this.walkLeft.length;
+       this.img = this.walkLeft[this.walkCycle];
+      
     }
   } 
   this.animateUp = function(){
    
     if(frameCount % 10 == 0){
-       this.img = this.walkUp[this.walkCycle];
         this.walkCycle = (this.walkCycle+1) % this.walkUp.length;
+       this.img = this.walkUp[this.walkCycle];
+      
     }
   } 
   //this function will move the player
@@ -77,6 +80,7 @@ function Player(x, y, w, h, col, img, l, r, u, d, speed) {
       this.rest();
     }
     roomChange()
+    wallCollision()
   }//end update
 
   //this function displays the image onto the canvas
