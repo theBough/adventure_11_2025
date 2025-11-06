@@ -14,12 +14,14 @@ function setup() {
 function draw() {
   background(220);
   noStroke();
-  p.display();
+  
   p.update();
+  
+   rooms[activeRow][activeColumn].call();
   for(i=0 ; i < w.length ; i++){
     w[i].display()
   }//end loop
-   rooms[activeRow][activeColumn].call();
+  p.display();
 }
 
 
